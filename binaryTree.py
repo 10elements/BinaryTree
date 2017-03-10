@@ -15,6 +15,12 @@ class binaryTree(object):
 			except Exception as e:
 				raise e
 
+	def __iter__(self):
+		"""
+		default iterator set to preorder itertator
+		"""
+		return self.preOrderIter()
+
 	@staticmethod
 	def serialize(data):
 		"""
