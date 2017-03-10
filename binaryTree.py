@@ -1,4 +1,5 @@
 from .treeNode import treeNode
+from collections import deque
 
 class binaryTree(object):
 	""" 
@@ -102,3 +103,19 @@ class binaryTree(object):
 				else:
 					stack.append(cur.right)
 		raise StopIteration
+
+	def bfsIter(self):
+		"""
+		bfs iterator
+		"""
+		if self.root:
+			queue = deque([self.root])
+			while len(queue):
+				front =  queue.popleft()
+				yield front.val
+				if front.left:
+					queue.append(front.left)
+				if front.right:
+					queue.append(front.right)
+		raise StopIteration
+
